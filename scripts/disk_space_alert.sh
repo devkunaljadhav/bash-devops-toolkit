@@ -3,7 +3,7 @@ echo "                                DISK SPACE CHECK                          
 echo "=============================================================================="
 #####################################################################################
 
-#Author : Kunal
+#Author : Kunal jadhav
 #Date : 18-08-2026
 #This Script Shows The Disk Space and Skow the alert
 
