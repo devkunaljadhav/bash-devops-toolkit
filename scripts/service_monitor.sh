@@ -4,10 +4,9 @@ echo "                             Service Monitor                              
 echo "=========================================================================="
 #################################################################################
 
-#Author : Kunal
+#Author : Kunal jadhav
 #Date : 18-08-2026
-#This Script for only Check the Status of the Services
-#Only For the SSH,Nginx,Apache Status Check 
+#This Script for only Check the Status of the Services. This Script Only For the SSH,Nginx,Apache Status Check.
 ################################################################################
 
 
