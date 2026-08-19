@@ -3,216 +3,95 @@
 [![Bash](https://img.shields.io/badge/Language-Bash-green.svg)](https://www.gnu.org/software/bash/)
 [![Platform](https://img.shields.io/badge/Platform-Linux-blue.svg)]()
 [![DevOps](https://img.shields.io/badge/DevOps-Automation-orange.svg)]()
+[![Maintained](https://img.shields.io/badge/Maintained-Actively%20Updated-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](LICENSE)
 
-A practical collection of **Beginner** and **Advance** Bash scripts for Linux administration, DevOps automation, system monitoring, network diagnostics, Docker maintenance, database backups, and daily operational tasks.
+An expanding, modular collection of practical **Bash scripts** designed for Linux system administration, DevOps automation, continuous monitoring, backups, Docker maintenance, and infrastructure operations.
 
-This repository is created for learning, hands-on practice, and portfolio building, focusing on real-world scripting problems commonly encountered in DevOps and system administration.
+This repository is organized into **Beginner** and **Advance** categories, allowing engineers and learners to quickly locate, run, or add practical automation scripts for daily tasks.
 
 ---
 
 ## 📌 Table of Contents
 
-- [Features](#-features)
-- [Repository Structure](#-repository-structure)
-- [🟢 Beginner Scripts](#-beginner-scripts)
-  - [1. System Info Collector (`system_info_collector.sh`)](#1-system-info-collector)
-  - [2. System Health Checker (`system_health_checker.sh`)](#2-system-health-checker)
-  - [3. Disk Space Alert (`disk_space_alert.sh`)](#3-disk-space-alert)
-  - [4. Network Connectivity Checker (`network_checker.sh`)](#4-network-connectivity-checker)
-  - [5. Service Status Monitor (`service_monitor.sh`)](#5-service-status-monitor)
-  - [6. High CPU Process Killer (`process_killer.sh`)](#6-high-cpu-process-killer)
-- [🚀 Advance Scripts](#-advance-scripts)
-  - [1. Backup with Rotation (`backup_with_rotation.sh`)](#1-backup-with-rotation)
-  - [2. Log Error Monitor (`log_error_monitor.sh`)](#2-log-error-monitor)
-  - [3. Docker System Cleanup (`docker_cleanup.sh`)](#3-docker-system-cleanup)
-  - [4. MySQL Database Backup (`mysql_db_backup.sh`)](#4-mysql-database-backup)
-  - [5. SSL Certificate Expiry Checker (`ssl_cert_expiry_checker.sh`)](#5-ssl-certificate-expiry-checker)
-  - [6. System Resource Alert Email (`system_alert_email.sh`)](#6-system-resource-alert-email)
-  - [7. User Account Manager (`user_account_manager.sh`)](#7-user-account-manager)
-  - [8. DevOps Port Scanner (`port_scanner_checker.sh`)](#8-devops-port-scanner)
-  - [9. Automated Git Repo Sync (`auto_git_sync.sh`)](#9-automated-git-repo-sync)
-  - [10. Resource Spike Logger (`cpu_memory_spike_logger.sh`)](#10-resource-spike-logger)
-- [Requirements](#-requirements)
-- [How to Use](#-how-to-use)
-- [Learning Goals](#-learning-goals)
-- [Author](#-author)
-- [License](#-license)
+- [Overview & Architecture](#-overview--architecture)
+- [🟢 Beginner Scripts](#-beginner-scripts-foundations)
+- [🚀 Advance Scripts](#-advance-scripts-automation--ops)
+- [⚡ Quick Start & Execution Guide](#-quick-start--execution-guide)
+- [📋 System Requirements](#-system-requirements)
+- [➕ Adding New Scripts (Guidelines)](#-adding-new-scripts-guidelines)
+- [🎯 Learning Goals](#-learning-goals)
+- [🔮 Planned & Upcoming Scripts](#-planned--upcoming-scripts)
+- [👤 Author & Connect](#-author)
+- [📄 License](#-license)
 
 ---
 
-## 🚀 Features
+## 📂 Overview & Architecture
 
-- 🖥️ **System Information & Health**: Collect hardware specs, OS details, CPU/Memory load, and disk utilization.
-- 💾 **Automated Backups & Rotation**: Automated directory and MySQL database backups with 7-day retention cleanup.
-- 🐳 **Docker System Cleanup**: Clean stopped containers, dangling images, unused networks, and volumes safely.
-- 🔒 **Security & Access Control**: SSL/TLS certificate expiry checking and automated user/sudo account management.
-- 🌐 **Networking & Diagnostics**: Ping, DNS, HTTP/S checks, and DevOps open-port scanner.
-- 📊 **Monitoring & Logging**: Resource spike logger, log error scanner, and high-usage process management.
-
----
-
-## 📂 Repository Structure
+The toolkit is cleanly split into two core tiers so you can easily browse or drop new scripts at any time:
 
 ```text
 bash-devops-toolkit/
 ├── LICENSE
 ├── README.md
-├── Beginner Scripts/
-│   ├── system_info_collector.sh    # Collects system & hardware metrics
-│   ├── system_health_checker.sh    # Quick health check report
-│   ├── disk_space_alert.sh         # Disk usage check and threshold warning
-│   ├── network_checker.sh          # Checks Internet, DNS & HTTP connectivity
-│   ├── service_monitor.sh          # Checks status of SSH, Nginx, and Apache
-│   └── process_killer.sh           # Identifies and kills high-CPU processes
-└── Advance Scripts/
-    ├── backup_with_rotation.sh     # Compressed .tar.gz backup with 7-day retention
-    ├── log_error_monitor.sh        # Scans logs for Errors, Warnings & Critical issues
-    ├── docker_cleanup.sh           # Cleans unused containers, images, volumes & networks
-    ├── mysql_db_backup.sh          # Automated MySQL dump with gzip & retention
-    ├── ssl_cert_expiry_checker.sh  # Checks SSL certificate expiration date for domains
-    ├── system_alert_email.sh       # High CPU/RAM threshold alert monitor
-    ├── user_account_manager.sh     # Interactive user creation, deletion & sudo privileges
-    ├── port_scanner_checker.sh     # Scans key DevOps ports (22, 80, 443, 3306, 8080, etc.)
-    ├── auto_git_sync.sh            # Pulls latest Git changes automatically for deployments
-    └── cpu_memory_spike_logger.sh  # Records timestamped CPU/Memory spikes to log file
+├── Beginner Scripts/       # Core Linux administration & fundamental tasks
+│   ├── disk_space_alert.sh
+│   ├── network_checker.sh
+│   ├── process_killer.sh
+│   ├── service_monitor.sh
+│   ├── system_health_checker.sh
+│   └── system_info_collector.sh
+└── Advance Scripts/        # Production automation, Docker, backups, and security
+    ├── auto_git_sync.sh
+    ├── backup_with_rotation.sh
+    ├── cpu_memory_spike_logger.sh
+    ├── docker_cleanup.sh
+    ├── log_error_monitor.sh
+    ├── mysql_db_backup.sh
+    ├── port_scanner_checker.sh
+    ├── ssl_cert_expiry_checker.sh
+    ├── system_alert_email.sh
+    └── user_account_manager.sh
 ```
 
 ---
 
-## 🟢 Beginner Scripts
+## 🟢 Beginner Scripts (Foundations)
 
-### 1. System Info Collector
-**File:** `Beginner Scripts/system_info_collector.sh`  
-Displays essential details such as Hostname, OS version (`/etc/os-release`), Kernel version, CPU model, Memory (`free -h`), Disk usage (`df -h`), IP address, Uptime, and logged-in users.
-```bash
-./"Beginner Scripts/system_info_collector.sh"
-```
+These scripts focus on fundamental Linux operations, resource diagnostics, and command-line monitoring:
 
-### 2. System Health Checker
-**File:** `Beginner Scripts/system_health_checker.sh`  
-Generates a quick health report showing hostname, date, uptime, memory, and disk usage.
-```bash
-./"Beginner Scripts/system_health_checker.sh"
-```
-
-### 3. Disk Space Alert
-**File:** `Beginner Scripts/disk_space_alert.sh`  
-Checks root filesystem usage against an 80% threshold and alerts if disk space is low.
-```bash
-./"Beginner Scripts/disk_space_alert.sh"
-```
-
-### 4. Network Connectivity Checker
-**File:** `Beginner Scripts/network_checker.sh`  
-Tests Internet connectivity (`8.8.8.8`), DNS resolution (`google.com`), and HTTP reachability (`curl https://google.com`).
-```bash
-./"Beginner Scripts/network_checker.sh"
-```
-
-### 5. Service Status Monitor
-**File:** `Beginner Scripts/service_monitor.sh`  
-Checks active status of essential services (`ssh`, `nginx`, `httpd`) using `systemctl`.
-```bash
-./"Beginner Scripts/service_monitor.sh"
-```
-
-### 6. High CPU Process Killer
-**File:** `Beginner Scripts/process_killer.sh`  
-Lists top CPU-consuming processes and allows the user to enter a PID to terminate.
-```bash
-./"Beginner Scripts/process_killer.sh"
-```
+| Script Name | Purpose & Description | Quick Command |
+| :--- | :--- | :--- |
+| **`system_info_collector.sh`** | Displays OS details, Kernel version, CPU, Memory, Disk, and IP | `./"Beginner Scripts/system_info_collector.sh"` |
+| **`system_health_checker.sh`** | Quick health summary showing hostname, date, uptime, and RAM | `./"Beginner Scripts/system_health_checker.sh"` |
+| **`disk_space_alert.sh`** | Alerts if root (`/`) filesystem exceeds 80% usage threshold | `./"Beginner Scripts/disk_space_alert.sh"` |
+| **`network_checker.sh`** | Verifies Internet (`8.8.8.8`), DNS resolution, and HTTP status | `./"Beginner Scripts/network_checker.sh"` |
+| **`service_monitor.sh`** | Checks running status of SSH, Nginx, and Apache services | `./"Beginner Scripts/service_monitor.sh"` |
+| **`process_killer.sh`** | Lists top CPU processes and prompts for PID termination | `./"Beginner Scripts/process_killer.sh"` |
 
 ---
 
-## 🚀 Advance Scripts
+## 🚀 Advance Scripts (Automation & Ops)
 
-### 1. Backup with Rotation
-**File:** `Advance Scripts/backup_with_rotation.sh`  
-Creates a timestamped, gzip-compressed archive (`.tar.gz`) of a source directory and automatically deletes backups older than 7 days.
-```bash
-./"Advance Scripts/backup_with_rotation.sh"
-```
+These scripts solve real-world DevOps problems including automated backups, Docker maintenance, security audits, and log parsing:
 
-### 2. Log Error Monitor
-**File:** `Advance Scripts/log_error_monitor.sh`  
-Scans system or application log files for `ERROR`, `WARNING`, and `CRITICAL` keywords, counts occurrences, and prints the last 5 error entries.
-```bash
-# Scan default syslog
-./"Advance Scripts/log_error_monitor.sh"
-
-# Scan specific application log
-./"Advance Scripts/log_error_monitor.sh" /var/log/nginx/error.log
-```
-
-### 3. Docker System Cleanup
-**File:** `Advance Scripts/docker_cleanup.sh`  
-Frees up disk space by safely removing stopped containers, unused/dangling images, unused networks, and dangling volumes.
-```bash
-./"Advance Scripts/docker_cleanup.sh"
-```
-
-### 4. MySQL Database Backup
-**File:** `Advance Scripts/mysql_db_backup.sh`  
-Performs automated `mysqldump` of database, compresses output with `gzip`, verifies file creation, and applies an N-day retention policy.
-```bash
-./"Advance Scripts/mysql_db_backup.sh"
-```
-
-### 5. SSL Certificate Expiry Checker
-**File:** `Advance Scripts/ssl_cert_expiry_checker.sh`  
-Connects via OpenSSL to verify domain SSL/TLS certificate expiration dates and warns if expiry is within 30 days.
-```bash
-./"Advance Scripts/ssl_cert_expiry_checker.sh" google.com
-```
-
-### 6. System Resource Alert Email
-**File:** `Advance Scripts/system_alert_email.sh`  
-Monitors overall CPU and Memory utilization against 80% thresholds and triggers alert notifications.
-```bash
-./"Advance Scripts/system_alert_email.sh"
-```
-
-### 7. User Account Manager
-**File:** `Advance Scripts/user_account_manager.sh`  
-Interactive management script for Linux user administration (create user, set password, assign sudo access, delete user, check status).
-```bash
-sudo ./"Advance Scripts/user_account_manager.sh"
-```
-
-### 8. DevOps Port Scanner
-**File:** `Advance Scripts/port_scanner_checker.sh`  
-Checks whether common DevOps ports (SSH 22, HTTP 80, HTTPS 443, MySQL 3306, Postgres 5432, Jenkins 8080, Prometheus 9090, Grafana 3000) are open or listening.
-```bash
-./"Advance Scripts/port_scanner_checker.sh" 127.0.0.1
-```
-
-### 9. Automated Git Repo Sync
-**File:** `Advance Scripts/auto_git_sync.sh`  
-Checks Git remote repository for updates, pulls latest commits on the target branch, and displays deployment commit status.
-```bash
-./"Advance Scripts/auto_git_sync.sh" /path/to/repo main
-```
-
-### 10. Resource Spike Logger
-**File:** `Advance Scripts/cpu_memory_spike_logger.sh`  
-Detects CPU/Memory spikes over 75% and logs timestamped events along with top 5 resource-consuming processes to `system_spikes.log`.
-```bash
-./"Advance Scripts/cpu_memory_spike_logger.sh"
-```
+| Script Name | Purpose & Description | Quick Command |
+| :--- | :--- | :--- |
+| **`backup_with_rotation.sh`** | Creates compressed `.tar.gz` backup and purges archives older than 7 days | `./"Advance Scripts/backup_with_rotation.sh"` |
+| **`log_error_monitor.sh`** | Scans log files for `ERROR`, `WARNING`, `CRITICAL` & shows recent errors | `./"Advance Scripts/log_error_monitor.sh"` |
+| **`docker_cleanup.sh`** | Cleans stopped containers, dangling images, unused volumes & networks | `./"Advance Scripts/docker_cleanup.sh"` |
+| **`mysql_db_backup.sh`** | Automated `mysqldump` database backup with gzip compression & rotation | `./"Advance Scripts/mysql_db_backup.sh"` |
+| **`ssl_cert_expiry_checker.sh`** | Checks SSL/TLS certificate expiry date for domains & alerts if expiring | `./"Advance Scripts/ssl_cert_expiry_checker.sh"` |
+| **`system_alert_email.sh`** | Triggers email/terminal alert when CPU or RAM crosses 80% threshold | `./"Advance Scripts/system_alert_email.sh"` |
+| **`user_account_manager.sh`** | Interactive menu for user creation, deletion, and sudo privilege setup | `sudo ./"Advance Scripts/user_account_manager.sh"` |
+| **`port_scanner_checker.sh`** | Checks status of DevOps ports (22, 80, 443, 3306, 8080, 9090, 3000) | `./"Advance Scripts/port_scanner_checker.sh"` |
+| **`auto_git_sync.sh`** | Pulls latest Git branch commits automatically for deployment updates | `./"Advance Scripts/auto_git_sync.sh"` |
+| **`cpu_memory_spike_logger.sh`** | Logs CPU/RAM spikes with top processes to `system_spikes.log` | `./"Advance Scripts/cpu_memory_spike_logger.sh"` |
 
 ---
 
-## 📋 Requirements
-
-- **Operating System:** Linux (Ubuntu, Debian, CentOS, RHEL, Fedora, etc.)
-- **Shell:** GNU Bash
-- **Standard Utilities:** `df`, `free`, `top`, `ps`, `tar`, `gzip`, `grep`, `awk`, `curl`, `openssl`, `systemctl`
-
----
-
-## ⚡ How to Use
+## ⚡ Quick Start & Execution Guide
 
 ### 1. Clone the Repository
 ```bash
@@ -221,18 +100,51 @@ cd bash-devops-toolkit
 ```
 
 ### 2. Make All Scripts Executable
+Grant executable permissions once across all script directories:
 ```bash
 chmod +x "Beginner Scripts"/*.sh "Advance Scripts"/*.sh
 ```
 
-### 3. Execute Any Script
+### 3. Run Any Script
+Simply run the desired script using its relative path:
 ```bash
-# Run a Beginner script
+# Example: Run Beginner script
 ./"Beginner Scripts/system_info_collector.sh"
 
-# Run an Advance script
-./"Advance Scripts/backup_with_rotation.sh"
+# Example: Run Advance script (with optional argument)
+./"Advance Scripts/ssl_cert_expiry_checker.sh" github.com
 ```
+
+---
+
+## 📋 System Requirements
+
+- **OS:** Linux (Ubuntu, Debian, RHEL, CentOS, Rocky Linux, Fedora, Alpine) or macOS
+- **Shell:** GNU Bash 4.x / 5.x
+- **Standard Linux Utilities:** `df`, `free`, `top`, `ps`, `tar`, `gzip`, `grep`, `awk`, `curl`, `openssl`, `systemctl`
+
+---
+
+## ➕ Adding New Scripts (Guidelines)
+
+Whenever you add new scripts to this repository, follow these simple conventions to maintain consistency:
+
+1. **Choose the Right Folder**:
+   - Place foundational / learning scripts in **`Beginner Scripts/`**.
+   - Place automation, deployment, Docker, cloud, or monitoring scripts in **`Advance Scripts/`**.
+2. **Include the Standard Header**:
+   ```bash
+   #!/bin/bash
+   # ==============================================================================
+   # Author      : Kunal Jadhav
+   # Date        : DD-MM-YYYY
+   # Description : Brief summary of what this script does.
+   # ==============================================================================
+   ```
+3. **Make it Executable**:
+   ```bash
+   chmod +x "Folder Name/your_new_script.sh"
+   ```
 
 ---
 
@@ -243,7 +155,17 @@ This project provides hands-on practice in:
 - Linux administration commands (`systemctl`, `df`, `free`, `ps`, `tar`, `openssl`)
 - Log analysis, incident triage, and regex pattern matching (`grep`, `awk`, `cut`)
 - DevOps automation workflows: backups, rotation, Docker maintenance, Git deployment
-- Defensive programming, error checking, and user management
+- Defensive scripting, error checking, and system access control
+
+---
+
+## 🔮 Planned & Upcoming Scripts
+
+- [ ] **AWS / Cloud Automation:** EC2 instance state monitor and S3 bucket backup uploader
+- [ ] **CI/CD & Webhook Helpers:** Webhook alert triggers for Slack and Discord
+- [ ] **Kubernetes / Container Helpers:** Pod health checker and restart tracker
+- [ ] **Database Helpers:** PostgreSQL and MongoDB automated backup scripts
+- [ ] **Cron Automation:** Automated cron installation and schedule helper
 
 ---
 
@@ -251,8 +173,8 @@ This project provides hands-on practice in:
 
 **Kunal Jadhav**  
 *DevOps and Cloud Engineer*  
-- GitHub: [@devkunaljadhav](https://github.com/devkunaljadhav)
-- LinkedIn: [devkunaljadhav](https://www.linkedin.com/in/devkunaljadhav)
+- 🐙 **GitHub:** [@devkunaljadhav](https://github.com/devkunaljadhav)
+- 💼 **LinkedIn:** [devkunaljadhav](https://www.linkedin.com/in/devkunaljadhav)
 
 ---
 
